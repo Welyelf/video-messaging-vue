@@ -1,0 +1,227 @@
+@import '../../../../../sass/variables';
+.multiline-ellipsis {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.service-add {
+	background-color: $light;
+	transition: $transition-base;
+	border: dashed 1px $gray-500;
+	&:hover {
+		background-color: white;
+	}
+}
+.timeslots-wrapper table td > div:last-child .timeslot-button {
+	margin-bottom: 0 !important;
+}
+.badge-day {
+	width: 25px;
+	height: 25px;
+}
+.service-day {
+	.chevron-down {
+		fill: $gray-500;
+		transition: $transition-base;
+	}
+
+	.service-day-heading {
+		&[aria-expanded='true'] {
+			svg {
+				transform: rotate(-180deg);
+				fill: black;
+			}
+		}
+		&:hover {
+			svg {
+				fill: black;
+			}
+		}
+	}
+}
+.info {
+	flex: 0 0 350px;
+}
+.service-description {
+	font-size: 16px;
+}
+
+.user-profile-image-sm {
+	width: 30px;
+	height: 30px;
+	span {
+		font-size: 11px;
+	}
+}
+.pagination ::v-deep .page-item {
+	.page-link {
+		color: $body-color;
+		transition: $transition-base;
+		box-shadow: none !important;
+	}
+	&.active {
+		.page-link {
+			background: $gray-400 !important;
+		}
+	}
+	&.pagination-prev-nav,
+	&.pagination-next-nav {
+		&.disabled {
+			opacity: 0.25;
+		}
+	}
+}
+.coaches-container {
+	z-index: 2;
+}
+.active-user {
+	transition: $transition-base;
+	border-top-left-radius: $border-radius;
+	border-bottom-left-radius: $border-radius;
+	top: 72px;
+	left: 0;
+	height: 69px;
+	background-color: white;
+	box-shadow: $box-shadow-sm;
+	z-index: 0;
+	&:after {
+		content: '';
+		height: 100%;
+		width: 5px;
+		background-color: white;
+		top: 0;
+		right: -5px;
+		position: absolute;
+	}
+}
+
+.profile-image {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background-size: cover;
+	background-size: no-repeat;
+	background-position: center;
+	background-color: $gray-400;
+	position: relative;
+	span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: $gray-500;
+		font-size: 24px;
+	}
+	&.profile-image-md {
+		width: 60px;
+		height: 60px;
+		span {
+			font-size: 24px;
+		}
+	}
+	&.profile-image-sm {
+		width: 45px;
+		height: 45px;
+		span {
+			font-size: 20px;
+		}
+	}
+	&.profile-image-xs {
+		width: 30px;
+		height: 30px;
+		span {
+			font-size: 12px;
+		}
+	}
+	&.profile-image-xxs {
+		width: 24px;
+		height: 24px;
+		span {
+			font-size: 10px;
+		}
+	}
+}
+
+.timeslots-wrapper .timeslot-button.disabled {
+	opacity: 0.85;
+	color: $dark;
+}
+
+.table-layout-fixed {
+	table-layout: fixed !important;
+}
+
+::v-deep .vc-highlight {
+	background-color: $primary !important;
+}
+::v-deep .vc-reset,
+::v-deep .vc-reset * {
+	line-height: 1.35;
+}
+.add-member {
+	transition: $transition-base !important;
+	&:hover {
+		background-color: white;
+		box-shadow: $box-shadow-sm;
+	}
+}
+.member-dropdown {
+	opacity: 0;
+	transition: $transition-base;
+}
+.member-container:hover {
+	.member-dropdown {
+		opacity: 1;
+	}
+}
+#availability-modal {
+	min-height: 500px;
+}
+.badge-tooltip {
+	display: inline-block;
+	position: relative;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	&:before {
+		content: '?';
+		font-size: 12px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		line-height: 0 !important;
+	}
+}
+.custom-day-content {
+	.vc-highlights {
+		display: none;
+	}
+	&.active {
+		.vc-highlights {
+			display: block !important;
+		}
+		.vc-day-content {
+			color: white !important;
+			font-weight: bold !important;
+		}
+	}
+	&.is-disabled {
+		pointer-events: none !important;
+	}
+}
+.active-service {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 8px;
+	width: 100%;
+	z-index: 0;
+	background-color: $primary;
+	transition: $transition-base;
+	opacity: 0;
+	&.show {
+		opacity: 1;
+	}
+}

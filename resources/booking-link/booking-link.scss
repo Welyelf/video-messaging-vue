@@ -1,0 +1,113 @@
+.headcol {
+	position: absolute;
+	width: 200px;
+	left: 0;
+	top: auto;
+
+	@media (max-width: 375px) {
+		width: 150px;
+	}
+}
+
+.timeslots-table {
+	.contact-td > div {
+		height: 64px !important;
+	}
+}
+.timeslot {
+	&.disabled {
+		@apply pointer-events-none;
+		> div > div {
+			@apply opacity-30;
+		}
+	}
+}
+.timeslot-content {
+	@apply px-1 flex flex-col justify-center h-full relative;
+	&.selectable {
+		@apply cursor-pointer hover:border-primary-light transition-colors;
+	}
+	&.selected {
+		::v-deep span {
+			color: #27d898 !important;
+		}
+		&:after {
+			content: '';
+			height: 4px;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background-color: #27d898 !important;
+		}
+	}
+	&.suggested {
+		@apply border-opacity-100;
+	}
+}
+.profile-image {
+	@apply bg-cover bg-center bg-no-repeat rounded-full bg-primary relative;
+	width: 36px;
+	height: 36px;
+	> span {
+		@apply absolute transform -translate-x-1/2 -translate-y-1/2 z-10 left-1/2 top-1/2 text-sm font-bold text-white leading-tight;
+	}
+	&.profile-image-xs {
+		width: 22px;
+		height: 22px;
+		> span {
+			font-size: 8px;
+		}
+	}
+	&.profile-image-sm {
+		width: 28px;
+		height: 28px;
+		> span {
+			@apply text-xs;
+		}
+	}
+	&.profile-image-md {
+		width: 40px;
+		height: 40px;
+		> span {
+			@apply text-lg;
+		}
+	}
+	&.profile-image-xl {
+		width: 80px;
+		height: 80px;
+		> span {
+			@apply text-3xl;
+		}
+	}
+	&.profile-image-gray {
+		@apply bg-gray-300;
+	}
+}
+.suggested {
+	@apply border-l-2 border-r-2 border-b-2 absolute bottom-3 z-50 left-0 w-full h-3 text-center;
+}
+
+.timeslots-matched {
+	@apply opacity-0;
+	> div {
+		@apply border-l border-r border-b h-4 mt-3 relative;
+		border-width: 2px;
+		border-top-width: 0;
+		border-color: #27d898;
+		span {
+			@apply rounded-full absolute inline-block left-1/2 transform -translate-x-1/2;
+			bottom: -15px;
+			width: 30px;
+			height: 30px;
+			background-color: #27d898;
+		}
+	}
+	&.show {
+		@apply opacity-100;
+	}
+	> span {
+		@apply font-semibold mt-3 inline-block;
+		color: #27d898;
+	}
+}

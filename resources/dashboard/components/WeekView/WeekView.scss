@@ -1,0 +1,81 @@
+::v-deep {
+	.v-calendar-daily__head {
+		border-right: none !important;
+	}
+	.v-calendar-events .v-event-timed {
+		@apply border-none p-2 transition-colors shadow-inner overflow-visible #{!important};
+		min-height: 48px !important;
+	}
+	.v-calendar-daily__interval-text {
+		@apply text-xs text-muted #{!important};
+	}
+	.v-ripple__container {
+		@apply hidden #{!important};
+	}
+	.v-calendar-daily_head-weekday,
+	.v-calendar-daily_head-day-label {
+		@apply hidden;
+	}
+	.theme--light.v-calendar-daily {
+		border-top: none !important;
+		border-left: none !important;
+	}
+	.v-calendar-daily__intervals-head,
+	.v-calendar-daily__intervals-body {
+		width: 70px !important;
+	}
+}
+.week-header {
+	@apply p-4 pointer-events-none;
+	&.active {
+		@apply bg-primary;
+		> div {
+			@apply text-white #{!important};
+		}
+	}
+	@media (max-width: 768px) {
+		@apply h-full flex items-center justify-center flex-col whitespace-pre;
+	}
+}
+.day-interval {
+	@apply w-full h-full transition-colors hover:bg-gray-100;
+	&.disabled {
+		@apply pointer-events-none bg-gray-100;
+	}
+}
+.block-dropdown {
+	@apply relative inline-block;
+
+	.block-dropdown-menu {
+		> div {
+			max-height: 200px;
+		}
+		@apply transform scale-95  origin-top absolute right-1/2 translate-x-1/2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-all opacity-0 ease-in-out whitespace-nowrap p-2;
+		z-index: -1;
+	}
+	&.open {
+		.block-dropdown-menu {
+			@apply z-50 scale-100 opacity-100;
+		}
+	}
+}
+.calendar-week {
+	@media (max-width: 768px) {
+		width: 100%;
+		height: 1218px;
+		overflow-x: scroll;
+
+		.v-calendar {
+			width: 763px;
+			height: 100%;
+		}
+		::v-deep {
+			.v-calendar-daily__scroll-area {
+				overflow-y: inherit;
+			}
+			.v-event-timed-container {
+				margin-right: 0;
+			}
+		}
+	}
+}
